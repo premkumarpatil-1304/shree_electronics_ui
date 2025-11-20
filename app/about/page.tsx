@@ -4,6 +4,8 @@ import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 import CountUp from "react-countup";
 import React, { useEffect, useState } from "react";
+import TeamSection from "../components/TeamSection";
+
 
 const heroPhrases = [
   
@@ -166,7 +168,7 @@ export default function About() {
           <div className="relative">
             <div className="relative aspect-16/10 rounded-2xl overflow-hidden border-2 border-[#FF7A00] shadow-xl shadow-[#FF7A00]/40">
               <Image
-                src="/about_section_images/img1.jpg"
+                src="/team_photos/about_hero.png"
                 alt="Shree Electronics repair workspace"
                 fill
                 sizes="(max-width:1024px) 100vw, 50vw"
@@ -325,71 +327,10 @@ export default function About() {
         </div>
       </section>
 
-      {/* TEAM SECTION */}
-      <section className="py-20 px-4 bg-gray-50">
-        <div className="max-w-6xl mx-auto text-center">
-          {/* Section Title */}
-          <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-4">
-            Meet Our Team
-          </h2>
-          <p className="text-lg md:text-xl text-gray-600 mb-14 max-w-2xl mx-auto">
-            Passionate professionals dedicated to your success
-          </p>
-
+    
           {/* Team Grid – 2 cards */}
-          <div className="grid bg-amber-200 gap-10 sm:grid-cols-1 md:grid-cols-2">
-            {[
-              {
-                name: "Chetan Patil",
-                role: "Video Editor",
-                img: "/team_photos/Harshal_Patil.png",
-              },
-              {
-                name: "Ainkya Kurhade",
-                role: "Social Media Manager",
-                img: "/team_photos/social_media.png",
-              },
-            ].map((member, index) => (
-              <div
-                key={index}
-                style={{ animationDelay: `${index * 120}ms` }}
-                className="rounded-2xl bg-white p-6 shadow-lg border border-gray-100 hover:border-[#FF7A00]
-            transition-all duration-500 hover:shadow-2xl hover:shadow-[#FF7A00]/30 hover:-translate-y-2 hover:scale-[1.03]
-            opacity-0 animate-fadeInUp"
-              >
-                {/* Animated Photo Box */}
-                <div
-                  className="relative w-40 h-40 mx-auto mb-5 rounded-xl overflow-hidden
-              group shadow-md shadow-[#FF7A00]/20
-              hover:shadow-xl hover:shadow-[#FF7A00]/40 transition-all duration-500
-              bg-gradient-to-br from-[#FF7A00]/20 to-[#ffffff]"
-                >
-                  <div className="absolute inset-0 bg-white/10 backdrop-blur-[2px]" />
-
-                  <Image
-                    src={member.img}
-                    alt={member.name}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                </div>
-
-                {/* Name */}
-                <h3 className="text-xl font-bold text-black tracking-tight">
-                  {member.name}
-                </h3>
-
-                {/* Role */}
-                <p className="text-sm font-semibold text-[#FF7A00] mt-1">
-                  {member.role}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-
+          <TeamSection />
+        
 
       {/* CTA SECTION */}
       <section className="bg-gradient-to-r from-[#FF7A00] to-black text-white py-16 px-4">

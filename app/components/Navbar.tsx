@@ -46,9 +46,9 @@ export default function Navbar() {
                     >
                         <div className="relative">
                             <div className="absolute inset-0 bg-[#FF7A00]/25 blur-sm opacity-0 group-hover:opacity-100 transition-opacity rounded" />
-                            <div className="relative w-40 h-[50px] rounded overflow-hidden">
+                            <div className="relative w-50 h-[70px] rounded overflow-hidden">
                                 <Image
-                                    src="/logo/logo.jpg"
+                                    src="/logo1.jpg"
                                     alt="BN Media logo"
                                     fill
                                     sizes="160px"

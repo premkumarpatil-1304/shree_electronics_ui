@@ -1,8 +1,8 @@
 "use client";
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import HeroCarousel from './HeroCarousel';
 
 export default function Hero() {
     const [currentVideo, setCurrentVideo] = useState(0);
@@ -59,18 +59,12 @@ export default function Hero() {
     }, [videos.length]);
 
     return (
-        <section className="bg-black text-white  h-[90vh] flex items-center relative overflow-hidden">
-            {/* Animated Background */}
-            {/* <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-20 left-10 w-72 h-72 bg-[#FF7A00] rounded-full blur-3xl animate-pulse"></div>
-                <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#FF7A00] rounded-full blur-3xl animate-pulse"></div>
-            </div> */}
-
-            <div className="max-w-7xl mx-auto w-full relative z-10">
-                <div className="grid lg:grid-cols-2 gap-7 items-center">
+        <section className="bg-black text-white h-[90vh] flex items-center relative overflow-hidden">
+            <div className="max-w-7xl mx-auto w-full relative z-10 px-4">
+                <div className="grid lg:grid-cols-2 gap-12 items-center">
                     {/* Left Side - Content */}
                     <div className="text-center lg:text-left">
-                        <span className="inline-block bg-[#FF7A00] text-white px-6 py-2  rounded-full text-m font-bold mb-2 animate-bounce">
+                        <span className="inline-block bg-[#FF7A00] text-white px-6 py-2 rounded-full text-m font-bold mb-2 animate-bounce">
                             Welcome
                         </span>
                         <h1 className='text-6xl md:text-4xl lg:text-6xl font-bold mb-2 leading-tight'>Shree Electronics</h1>
@@ -102,21 +96,22 @@ export default function Hero() {
                             </Link>
                         </div>
                     </div>
+
+                    {/* Right Side - Image */}
+                    <div className="hidden lg:block relative h-[600px] rounded-2xl overflow-hidden shadow-2xl">
+                        <Image
+                            src="/home_page/shop_photo.png"
+                            alt="Electronics Repair Services"
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 1024px) 100vw, 50vw"
+                            priority
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    </div>
                 </div>
             </div>
-            <div className="relative">
-                <HeroCarousel
-                    slides={[
-                        { src: "/home_page/hero_carousel_1.png", alt: "Shree Electronics showcase 1" },
-                        { src: "/home_page/hero_carousel_2.png", alt: "Shree Electronics showcase 2" },
-                        { src: "/home_page/hero_carousel_3.png", alt: "Shree Electronics showcase 3" },
-                    ]}
-                    interval={5000}
-                />
-            </div>    
-
-                   
-            
         </section>
     );
 }
+3
