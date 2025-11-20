@@ -7,9 +7,9 @@ export default function AboutShreeElectronicsSection() {
             <div className="max-w-7xl mx-auto px-4 py-20 grid lg:grid-cols-2 gap-12 items-center">
                 {/* Left: Image */}
                 <div className="relative">
-                    <div className="relative aspect-16/10 rounded-2xl overflow-hidden border-2 border-[#FF7A00] shadow-xl shadow-[#FF7A00]/30">
+                    <div className="relative aspect-12/12 rounded-2xl overflow-hidden border-2 border-[#FF7A00] shadow-xl shadow-[#FF7A00]/30">
                         <Image
-                            src="/hero_section_images/hero_four_image.png"
+                            src="/home_page/shop_photo.png"
                             alt="Shree Electronics repair workspace"
                             fill
                             sizes="(max-width: 1024px) 100vw, 50vw"
