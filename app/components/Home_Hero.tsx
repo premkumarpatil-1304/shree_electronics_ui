@@ -78,7 +78,7 @@ export default function Hero() {
                         </h1>
 
                         <p className="text-lg md:text-xl mb-8 text-gray-300">
-                            Mobile Phones • Laptops • Desktops • TVs • Home Appliances
+                            Microwave • Washing Machine • Fridge • TVs • Home Appliances
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">

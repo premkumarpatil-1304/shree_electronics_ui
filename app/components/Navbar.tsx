@@ -30,10 +30,11 @@ export default function Navbar() {
 
     return (
         <nav
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-                ? "bg-black/95 backdrop-blur-lg shadow-lg shadow-[#CC5500]/20"
-                    : "bg-black/80 backdrop-blur-sm"
-                }`}
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 
+                bg-white
+                
+              
+                `}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* main row */}
@@ -48,7 +49,7 @@ export default function Navbar() {
                             <div className="absolute inset-0 bg-[#FF7A00]/25 blur-sm opacity-0 group-hover:opacity-100 transition-opacity rounded" />
                             <div className="relative w-50 h-[70px] rounded overflow-hidden">
                                 <Image
-                                    src="/logo1.jpg"
+                                    src="/logo.png"
                                     alt="BN Media logo"
                                     fill
                                     sizes="160px"
@@ -65,9 +66,9 @@ export default function Navbar() {
                             <Link
                                 key={item.href}
                                 href={item.href}
-                                className={`relative px-4 py-2 text-sm font-medium tracking-wide transition-all duration-300 group ${isActive(item.href)
+                                className={`relative px-4 py-2 text-m font-medium tracking-wide transition-all duration-300 group ${isActive(item.href)
                                         ? "text-[#FF7A00]"
-                                        : "text-white hover:text-[#FFB566]"
+                                        : "text-black hover:text-[#FFB566]"
                                     }`}
                             >
                                 {item.label}

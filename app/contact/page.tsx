@@ -3,6 +3,7 @@
 import { useEffect } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import AppointmentForm from '../components/AppointmentForm';
 
 export default function ShopLocations() {
     const locations = [
@@ -88,14 +89,16 @@ export default function ShopLocations() {
     }, []);
 
     return (
-        <section className="bg-gray-50 py-16 px-4">
+        <section className="bg-white py-16 px-4">
+            <AppointmentForm />
+
             <div className="max-w-7xl mx-auto">
                 {/* Section Header */}
                 <div className="text-center mb-12">
-                    <h2 className="text-4xl font-bold text-gray-900 mb-4">
+                    <h2 className="text-4xl font-bold text-gray-100 mb-4">
                         Visit Our Stores
                     </h2>
-                    <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                    <p className="text-lg text-gray-300 max-w-2xl mx-auto">
                         Find us at our two convenient locations in Pune
                     </p>
                 </div>

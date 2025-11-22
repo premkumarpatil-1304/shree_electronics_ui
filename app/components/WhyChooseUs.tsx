@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 const reasons: string[] = [
     "Almost all spare parts available in‑house",
     "Low‑cost, transparent service charges",
-    "Repairs for mobiles, laptops, desktops, TVs & appliances",
+    "Repairs for TVs & appliances",
     "Door‑to‑door pickup and delivery in selected areas",
     "Experienced technicians & trusted local support",
 ];
@@ -47,7 +47,7 @@ const WhyChooseUs: React.FC = () => {
                 </h2>
 
                 <p className="text-gray-300 text-lg md:text-xl mb-8 max-w-3xl">
-                    From smartphones and laptops to TVs and home appliances, we provide
+                    From TVs to home appliances, we provide
                     fast, reliable and affordable repair services with genuine or
                     high‑quality parts and a friendly local team.
                 </p>
@@ -74,7 +74,7 @@ const WhyChooseUs: React.FC = () => {
                     />
                     <WhyPoint
                         title="Everything Repaired Here"
-                        text="Mobiles, laptops, desktops, LED/LCD TVs, inverters and more – one service center for almost every device at home or office."
+                        text="LED/LCD TVs, inverters and more – one service center for almost every device at home or office."
                     />
                     <WhyPoint
                         title="Door‑to‑Door Convenience"

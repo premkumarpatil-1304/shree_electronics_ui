@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import ServicesGrid from "../components/ServicesGrid";
 
 export default function ServicesPage() {
     // Testimonials data
@@ -218,6 +219,7 @@ export default function ServicesPage() {
                     </div>
                 </div>
             </section>
+            <ServicesGrid />
 
             {/* SECTION 3: DOOR-TO-DOOR SERVICE */}
             <section className="py-20 px-4 bg-[#050505]">
