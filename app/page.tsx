@@ -7,7 +7,7 @@ import WhyChooseUs from "./components/WhyChooseUs";
 export const metadata = {
   title: "Shree Electronics - Your Trusted Appliance Repair Partner",
   description:
-    "Grow your business with BN Media. We provide creative digital marketing, website design, branding, and software solutions tailored for your success.",
+    "Your trusted destination for high-quality electronics and electrical solutions. We offer a wide range of products including home appliances, mobile accessories, LED lighting, CCTV systems, wiring materials, inverters, batteries, and repair services. Whether you're upgrading your home, setting up a business, or looking for technical support, our expert team is here to guide you with reliable products, competitive pricing, and professional assistance.",
 };
 
 
