@@ -105,7 +105,7 @@ type WhyPointProps = {
 const WhyPoint: React.FC<WhyPointProps> = ({ title, text }) => {
     return (
         <div className="flex items-start gap-4">
-            <div className="mt-1 flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[#FF7A00] to-[#CC6200] text-black shadow-md">
+            <div className="mt-1 flex h-10 w-10 items-center justify-center rounded-xl bg-linear-to-br from-[#FF7A00] to-[#CC6200] text-black shadow-md">
                 <span className="text-xl">✓</span>
             </div>
             <div>

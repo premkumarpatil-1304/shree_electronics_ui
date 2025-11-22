@@ -16,7 +16,7 @@ export default function AboutShreeElectronicsSection() {
                             className="object-cover"
                             priority
                         />
-                        <div className="absolute inset-0 bg-gradient-to-tr from-black/40 via-black/10 to-transparent" />
+                        <div className="absolute inset-0 bg-linear-to-tr from-black/40 via-black/10 to-transparent" />
                     </div>
                 </div>
 

@@ -3,20 +3,23 @@
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import L from "leaflet";
 import { useEffect } from "react";
+import "leaflet/dist/leaflet.css";
 import "leaflet-routing-machine";
+import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
 
-// Declare module for leaflet-routing-machine to avoid TypeScript errors
+// Declare module for routing
 declare module "leaflet" {
     namespace Routing {
         function control(options: any): any;
     }
 }
-import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
 
-// Fix default marker icon issue in Leaflet
+// Fix default marker icon
 const defaultIcon = new L.Icon({
-    iconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon.png",
-    shadowUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png",
+    iconUrl:
+        "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon.png",
+    shadowUrl:
+        "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png",
     iconSize: [25, 41],
     iconAnchor: [12, 41],
     popupAnchor: [1, -34],
@@ -25,6 +28,7 @@ const defaultIcon = new L.Icon({
 
 L.Marker.prototype.options.icon = defaultIcon;
 
+// 👇 Same locations as you provided
 const locations = [
     {
         id: 1,
@@ -38,7 +42,7 @@ const locations = [
         id: 2,
         name: "BN Media - Second Location",
         address: "Second Location Address, Akola, Maharashtra",
-        lat: 18.644237823908387, // Example coordinates - replace with actual
+        lat: 18.644237823908387,
         lng: 73.76527691534231,
         phone: "+91 87675 87595",
     },
@@ -58,15 +62,15 @@ function RoutingControl() {
             routeWhileDragging: true,
             showAlternatives: true,
             lineOptions: {
-                styles: [{ color: "#FF6600", weight: 4 }], // Orange theme
+                styles: [{ color: "#FF6600", weight: 4 }], // Orange color
             },
-            createMarker: function () {
-                return null; // Don't create default markers (we have our own)
-            },
+            createMarker: () => null,
         }).addTo(map);
 
         return () => {
-            map.removeControl(routingControl);
+            if (routingControl) {
+                map.removeControl(routingControl);
+            }
         };
     }, [map]);
 
@@ -77,7 +81,6 @@ function LocationMarker() {
     const map = useMap();
 
     useEffect(() => {
-        // Center map to show both locations
         if (locations.length > 0) {
             const bounds = L.latLngBounds(
                 locations.map((loc) => [loc.lat, loc.lng])
@@ -91,14 +94,14 @@ function LocationMarker() {
 
 export default function LocationMap() {
     return (
-        <section className="py-20 px-4 bg-white relative z-10">
+        <section className="py-10 px-4 bg-white relative ">
             <div className="max-w-7xl mx-auto">
-                <div className="text-center mb-12">
+                <div className="text-center ">
                     <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">
                         Find Us on the Map
                     </h2>
                     <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                        Visit our offices in Akola to discuss your digital needs
+                        Visit our offices in PCMC to discuss your digital needs
                     </p>
                 </div>
 
@@ -111,7 +114,7 @@ export default function LocationMap() {
                             style={{ height: "500px", width: "100%" }}
                         >
                             <TileLayer
-                                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                             />
                             {locations.map((location) => (
@@ -143,46 +146,24 @@ export default function LocationMap() {
                         </MapContainer>
                     </div>
 
-                    {/* Locations List - Right */}
+                    {/* Right Side – List */}
                     <div className="space-y-4">
-                        <h3 className="text-2xl font-bold text-black mb-6">Our Locations</h3>
+                        <h3 className="text-2xl font-bold text-black mb-6">
+                            Our Locations
+                        </h3>
                         {locations.map((location) => (
                             <div
                                 key={location.id}
                                 className="bg-white p-5 rounded-xl shadow-md border-2 border-gray-100 hover:border-[#FF6600] transition-all"
                             >
                                 <h4 className="font-bold text-black mb-2">{location.name}</h4>
-                                <div className="space-y-2 text-sm text-gray-600">
-                                    <div className="flex items-start gap-2">
-                                        <svg
-                                            className="w-5 h-5 text-[#FF6600] shrink-0 mt-0.5"
-                                            fill="currentColor"
-                                            viewBox="0 0 20 20"
-                                        >
-                                            <path
-                                                fillRule="evenodd"
-                                                d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                                                clipRule="evenodd"
-                                            />
-                                        </svg>
-                                        <span>{location.address}</span>
-                                    </div>
-                                    <div className="flex items-center gap-2">
-                                        <svg
-                                            className="w-5 h-5 text-[#FF6600]"
-                                            fill="currentColor"
-                                            viewBox="0 0 20 20"
-                                        >
-                                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                                        </svg>
-                                        <a
-                                            href={`tel:${location.phone}`}
-                                            className="text-[#FF6600] font-semibold hover:underline"
-                                        >
-                                            {location.phone}
-                                        </a>
-                                    </div>
-                                </div>
+                                <p className="text-sm text-gray-600">{location.address}</p>
+                                <a
+                                    href={`tel:${location.phone}`}
+                                    className="text-[#FF6600] font-semibold text-sm hover:underline"
+                                >
+                                    {location.phone}
+                                </a>
                             </div>
                         ))}
                     </div>
@@ -190,21 +171,21 @@ export default function LocationMap() {
             </div>
 
             <style jsx>{`
-                :global(.leaflet-container) {
-                    z-index: 1 !important;
-                }
-                :global(.leaflet-popup) {
-                    z-index: 10 !important;
-                }
-                :global(.leaflet-control) {
-                    z-index: 5 !important;
-                }
-                :global(.leaflet-routing-container) {
-                    background: white;
-                    padding: 10px;
-                    border-radius: 8px;
-                }
-            `}</style>
+        :global(.leaflet-container) {
+          z-index: 1 !important;
+        }
+        :global(.leaflet-popup) {
+          z-index: 10 !important;
+        }
+        :global(.leaflet-control) {
+          z-index: 5 !important;
+        }
+        :global(.leaflet-routing-container) {
+          background: white;
+          padding: 10px;
+          border-radius: 8px;
+        }
+      `}</style>
         </section>
     );
 }
